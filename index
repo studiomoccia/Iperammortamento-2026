@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="it" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Iperammortamento 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                        darkCard: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease; }
+        .card { transition: all 0.3s ease; }
+        .dark body { background-color: #0f172a; color: #f1f5f9; }
+        .dark .card { background-color: #1e293b; border-color: #334155; }
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    </style>
+</head>
+<body class="p-4 md:p-8 bg-slate-50 text-slate-800">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Crediti e Toggle Tema -->
+        <div class="flex justify-between items-center mb-6">
+            <div class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                Built with love ❤️ by 
+                <a href="https://www.linkedin.com/in/matteomoccia" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline font-bold">
+                    Matteo Moccia <i class="fa-brands fa-linkedin ml-1"></i>
+                </a>
+            </div>
+            <button id="themeToggle" class="p-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                <i id="themeIcon" class="fa-solid fa-moon text-slate-600 dark:text-amber-400"></i>
+            </button>
+        </div>
+
+        <!-- Intestazione -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+            <div>
+                <h1 class="text-3xl font-bold text-slate-800 dark:text-white tracking-tight">Iperammortamento 2026</h1>
+                <p class="text-slate-500 dark:text-slate-400 font-bold text-lg mt-1">Versione 01/02/2026 per Soggetti IRES</p>
+            </div>
+            <div class="flex space-x-2">
+                <span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 px-3 py-1 rounded-full text-sm font-semibold border border-green-200 dark:border-green-800">In vigore</span>
+                <span class="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 px-3 py-1 rounded-full text-sm font-semibold border border-blue-200 dark:border-blue-800">Incentivo Fiscale</span>
+            </div>
+        </header>
+
+        <!-- KPI Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="card bg-white p-6 border-l-4 border-blue-500 shadow-sm rounded-xl dark:bg-slate-800">
+                <div class="flex items-center">
+                    <div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-blue-500 dark:text-blue-400 mr-4 text-xl"><i class="fa-solid fa-calendar-days"></i></div>
+                    <div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 font-semibold uppercase text-[10px]">Orizzonte Temporale</p>
+                        <p class="text-lg font-bold text-slate-800 dark:text-white">01.01.26 - 30.09.28</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-white p-6 border-l-4 border-green-500 shadow-sm rounded-xl dark:bg-slate-800">
+                <div class="flex items-center">
+                    <div class="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg text-green-500 dark:text-green-400 mr-4 text-xl"><i class="fa-solid fa-chart-line"></i></div>
+                    <div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 font-semibold uppercase text-[10px]">Scaglione Max</p>
+                        <p class="text-lg font-bold text-slate-800 dark:text-white">180% (fino 2.5M)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-white p-6 border-l-4 border-amber-500 shadow-sm rounded-xl dark:bg-slate-800">
+                <div class="flex items-center">
+                    <div class="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg text-amber-500 dark:text-amber-400 mr-4 text-xl"><i class="fa-solid fa-building"></i></div>
+                    <div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 font-semibold uppercase text-[10px]">Beneficiari</p>
+                        <p class="text-lg font-bold text-slate-800 dark:text-white">Reddito d'Impresa</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-white p-6 border-l-4 border-purple-500 shadow-sm rounded-xl dark:bg-slate-800">
+                <div class="flex items-center">
+                    <div class="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-purple-500 dark:text-purple-400 mr-4 text-xl"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 font-semibold uppercase text-[10px]">Investimento Max</p>
+                        <p class="text-lg font-bold text-slate-800 dark:text-white">€ 20.000.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Calcolatore Section -->
+            <div class="lg:col-span-2 space-y-8">
+                <div class="card bg-white p-6 shadow-sm rounded-xl dark:bg-slate-800">
+                    <h2 class="text-xl font-bold text-slate-800 dark:text-white mb-6 flex items-center">
+                        <i class="fa-solid fa-calculator mr-3 text-blue-600 dark:text-blue-400"></i> Calcolatore Beneficio Fiscale
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-600 dark:text-slate-300 mb-2">Importo Investimento (€)</label>
+                            <input type="number" id="investAmount" value="100000" class="w-full p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all dark:text-white" placeholder="Es: 500000">
+                            <p class="text-[10px] text-slate-400 mt-1 italic">Inserisci l'ammontare complessivo dell'investimento.</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-600 dark:text-slate-300 mb-2">Coeff. Ammortamento Fiscale (%)</label>
+                            <input type="number" id="coeff" value="20" class="w-full p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all dark:text-white">
+                        </div>
+                    </div>
+                    
+                    <!-- Dettaglio Scaglioni -->
+                    <div class="p-5 border border-slate-100 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-900/30 mb-6">
+                        <h3 class="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase mb-4 flex items-center">
+                            <i class="fa-solid fa-layer-group mr-2"></i> Ripartizione Maggiorazione
+                        </h3>
+                        <div id="breakdown-container" class="space-y-3">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Confronto Deduzioni Box -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm">
+                            <p class="text-[10px] text-slate-400 dark:text-slate-500 uppercase font-bold mb-1">Deduzione IRES ordinaria</p>
+                            <p id="ires-base" class="text-lg font-bold text-slate-600 dark:text-slate-300">€ 0</p>
+                            <div class="mt-2 pt-2 border-t border-slate-100 dark:border-slate-700">
+                                <p class="text-[9px] text-slate-400 uppercase font-bold">Risparmio IRES (24%)</p>
+                                <p id="tax-base" class="text-sm font-bold text-slate-500 dark:text-slate-400">€ 0</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl border-2 border-green-500 bg-green-50 dark:bg-green-900/10 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-green-500 text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg">TOTALE</div>
+                            <p class="text-[10px] text-green-700 dark:text-green-400 uppercase font-bold mb-1">Deduzione IRES Totale</p>
+                            <p id="ires-total" class="text-lg font-bold text-green-600">€ 0</p>
+                            <div class="mt-2 pt-2 border-t border-green-200 dark:border-green-800">
+                                <p class="text-[9px] text-green-700/60 dark:text-green-500 uppercase font-bold">Risparmio IRES Totale</p>
+                                <p id="tax-total" class="text-sm font-bold text-green-700 dark:text-green-400">€ 0</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl border border-blue-200 dark:border-blue-900/50 bg-blue-50 dark:bg-blue-900/10 shadow-sm">
+                            <p class="text-[10px] text-blue-700 dark:text-blue-400 uppercase font-bold mb-1">Maggiorazione Iperammortamento</p>
+                            <p id="ires-net" class="text-lg font-black text-blue-600">€ 0</p>
+                            <div class="mt-2 pt-2 border-t border-blue-200 dark:border-blue-800">
+                                <p class="text-[9px] text-blue-700/60 dark:text-blue-500 uppercase font-bold">Bonus IRES Netto</p>
+                                <p id="tax-net" class="text-sm font-bold text-blue-700 dark:text-blue-400">€ 0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabella Ammortamento -->
+                <div class="card bg-white p-6 shadow-sm rounded-xl overflow-hidden dark:bg-slate-800">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-4">Simulazione Piano Ammortamento (Fiscale)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-700">
+                                    <th class="p-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Anno</th>
+                                    <th class="p-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Amm. Civilistico</th>
+                                    <th class="p-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider text-blue-600 dark:text-blue-400">Iper-Amm. (Extra)</th>
+                                    <th class="p-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Tot. Deduzione</th>
+                                </tr>
+                            </thead>
+                            <tbody id="amortTable" class="dark:text-slate-300">
+                                <!-- Populated via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Info -->
+            <div class="space-y-8">
+                <!-- Checklist Beneficiari -->
+                <div class="card p-6 bg-slate-800 text-white rounded-xl shadow-lg">
+                    <h3 class="text-lg font-bold mb-4 flex items-center">
+                        <i class="fa-solid fa-check-double mr-3 text-green-400"></i> Requisiti Idoneità
+                    </h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-green-400 mt-1 mr-3"></i>
+                            <span>Soggetti titolari di reddito d'impresa residenti in Italia</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-green-400 mt-1 mr-3"></i>
+                            <span>Rispetto normative sicurezza e DURC regolare</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-green-400 mt-1 mr-3"></i>
+                            <span>Certificazione interconnessione 4.0</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Aliquote Scaglioni -->
+                <div class="card bg-white p-6 shadow-sm rounded-xl dark:bg-slate-800 border-t-4 border-blue-500">
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-4">Aliquote Scaglioni</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20">
+                            <span class="text-xs font-bold dark:text-blue-300 text-blue-800">0 - 2,5 Milioni</span>
+                            <span class="text-lg font-black text-blue-600">180%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 rounded-lg bg-green-50 dark:bg-green-900/20">
+                            <span class="text-xs font-bold dark:text-green-300 text-green-800">2,5 - 10 Milioni</span>
+                            <span class="text-lg font-black text-green-600">100%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 rounded-lg bg-slate-50 dark:bg-slate-900/40">
+                            <span class="text-xs font-bold dark:text-slate-300 text-slate-600">10 - 20 Milioni</span>
+                            <span class="text-lg font-black text-slate-500">50%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nota Risparmio -->
+                <div class="p-6 rounded-xl bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-900/50">
+                    <h4 class="text-amber-800 dark:text-amber-400 font-bold text-sm mb-2 flex items-center">
+                        <i class="fa-solid fa-coins mr-2 text-amber-600 dark:text-amber-500"></i> Risparmio Monetario
+                    </h4>
+                    <p class="text-xs text-amber-700 dark:text-amber-500 leading-relaxed italic">
+                        Il risparmio reale è calcolato all'aliquota IRES del 24%. Le deduzioni indicano l'importo che riduce il reddito imponibile.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer / Disclaimer -->
+        <footer class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 text-center">
+            <p class="text-[10px] md:text-xs text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4 font-semibold italic">
+                Disclaimer: Le informazioni fornite hanno scopo puramente illustrativo e non costituiscono consulenza professionale, legale o fiscale. Si declina ogni responsabilità per decisioni basate su questi calcoli. Consulta un professionista abilitato.
+            </p>
+            <p class="text-xs text-slate-500 dark:text-slate-600 font-bold">
+                &copy; 2026 Dashboard Iperammortamenti - Built with love ❤️ by Matteo Moccia
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const amountInput = document.getElementById('investAmount');
+        const coeffInput = document.getElementById('coeff');
+        
+        const iresBaseEl = document.getElementById('ires-base');
+        const iresTotalEl = document.getElementById('ires-total');
+        const iresNetEl = document.getElementById('ires-net');
+
+        const taxBaseEl = document.getElementById('tax-base');
+        const taxTotalEl = document.getElementById('tax-total');
+        const taxNetEl = document.getElementById('tax-net');
+        
+        const tableBody = document.getElementById('amortTable');
+        const breakdownContainer = document.getElementById('breakdown-container');
+
+        // Logic Tema
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            themeIcon.className = isDark ? 'fa-solid fa-sun text-amber-400' : 'fa-solid fa-moon text-slate-600';
+        });
+
+        function formatCurrency(val) {
+            return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(val);
+        }
+
+        function calculate() {
+            const amount = parseFloat(amountInput.value) || 0;
+            const coeff = (parseFloat(coeffInput.value) || 0) / 100;
+
+            // Logica Scaglioni Marginali
+            let s1_amount = Math.min(amount, 2500000);
+            let s1_bonus = s1_amount * 1.80;
+
+            let s2_amount = amount > 2500000 ? Math.min(amount - 2500000, 7500000) : 0;
+            let s2_bonus = s2_amount * 1.00;
+
+            let s3_amount = amount > 10000000 ? Math.min(amount - 10000000, 10000000) : 0;
+            let s3_bonus = s3_amount * 0.50;
+
+            const totalBonus = s1_bonus + s2_bonus + s3_bonus;
+            
+            // Valori Deduzione
+            const dedBase = amount;
+            const dedTotal = amount + totalBonus;
+            const dedExtra = totalBonus;
+
+            // Valori Risparmio IRES (24%)
+            const taxBase = dedBase * 0.24;
+            const taxTotal = dedTotal * 0.24;
+            const taxNet = dedExtra * 0.24;
+
+            // Aggiornamento UI
+            iresBaseEl.innerText = formatCurrency(dedBase);
+            iresTotalEl.innerText = formatCurrency(dedTotal);
+            iresNetEl.innerText = formatCurrency(dedExtra);
+
+            taxBaseEl.innerText = formatCurrency(taxBase);
+            taxTotalEl.innerText = formatCurrency(taxTotal);
+            taxNetEl.innerText = formatCurrency(taxNet);
+
+            renderBreakdown([
+                { label: 'Scaglione 1 (0-2.5M)', quota: s1_amount, rate: '180%', val: s1_bonus, color: 'blue' },
+                { label: 'Scaglione 2 (2.5-10M)', quota: s2_amount, rate: '100%', val: s2_bonus, color: 'green' },
+                { label: 'Scaglione 3 (10-20M)', quota: s3_amount, rate: '50%', val: s3_bonus, color: 'slate' }
+            ]);
+
+            updateTable(amount, totalBonus, coeff);
+        }
+
+        function renderBreakdown(data) {
+            breakdownContainer.innerHTML = '';
+            data.forEach(item => {
+                if(item.quota === 0 && amountInput.value > 0) return;
+                const perc = (item.quota / amountInput.value * 100) || 0;
+                const html = `
+                    <div class="flex flex-col space-y-1">
+                        <div class="flex justify-between items-end text-[11px] font-bold">
+                            <span class="text-slate-500 dark:text-slate-400 uppercase tracking-tighter">${item.label}</span>
+                            <span class="text-slate-800 dark:text-white">${formatCurrency(item.quota)} x ${item.rate} = <span class="text-${item.color}-600 font-black">${formatCurrency(item.val)}</span></span>
+                        </div>
+                        <div class="w-full bg-slate-100 dark:bg-slate-700 h-1 rounded-full overflow-hidden">
+                            <div class="bg-${item.color}-500 h-full" style="width: ${perc}%"></div>
+                        </div>
+                    </div>
+                `;
+                breakdownContainer.insertAdjacentHTML('beforeend', html);
+            });
+        }
+
+        function updateTable(cost, bonus, coeff) {
+            tableBody.innerHTML = '';
+            if (coeff <= 0) return;
+            
+            let years = Math.ceil(1 / coeff) + 1;
+            for (let i = 0; i < years; i++) {
+                let actualCoeff = (i === 0 || i === (years - 1)) ? (coeff / 2) : coeff;
+                let ammCiv = cost * actualCoeff;
+                let varDim = bonus * actualCoeff;
+                
+                const row = `
+                    <tr class="border-b border-slate-50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+                        <td class="p-4 text-sm font-semibold">Anno ${i + 1} (${2026 + i})</td>
+                        <td class="p-4 text-sm">${formatCurrency(ammCiv)}</td>
+                        <td class="p-4 text-sm text-blue-600 dark:text-blue-400 font-bold">+ ${formatCurrency(varDim)}</td>
+                        <td class="p-4 text-sm font-black">${formatCurrency(ammCiv + varDim)}</td>
+                    </tr>
+                `;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            }
+        }
+
+        [amountInput, coeffInput].forEach(input => input.addEventListener('input', calculate));
+        window.onload = calculate;
+
+    </script>
+</body>
+</html>
